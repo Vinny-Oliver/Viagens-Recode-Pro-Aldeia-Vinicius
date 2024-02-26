@@ -1,0 +1,15 @@
+package br.com.aplicationmvc.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/evento") // Caminho base para todos os métodos deste controlador
+public class EventoController {
+	
+	@RequestMapping("/cadastrarEvento") A URL completa será /evento/cadastrar
+	public String form() {
+		return "evento/formEvento";
+	}
+
+}

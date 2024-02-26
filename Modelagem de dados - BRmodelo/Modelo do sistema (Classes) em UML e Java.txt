@@ -1,0 +1,257 @@
+// Configurações do banco de dados em JAVA
+
+import java.sql.*;
+import java.util.Scanner;
+
+public class AgenciaViagensConsoleApp {
+    // Configurações do banco de dados
+    static final String JDBC_URL = "jdbc:seu_banco_de_dados_url";
+    static final String USER = "seu_usuario";
+    static final String PASSWORD = "sua_senha";
+
+    public static void main(String[] args) {
+        try (Connection connection = DriverManager.getConnection(JDBC_URL, USER, PASSWORD)) {
+            criarTabelas(connection); // Cria as tabelas se não existirem
+
+            Scanner scanner = new Scanner(System.in);
+            int opcao;
+
+            do {
+                System.out.println("1. Adicionar Cliente");
+                System.out.println("2. Listar Clientes");
+                System.out.println("3. Atualizar Cliente");
+                System.out.println("4. Remover Cliente");
+                System.out.println("5. Sair");
+                System.out.print("Escolha uma opção: ");
+                opcao = scanner.nextInt();
+
+                switch (opcao) {
+                    case 1:
+                        adicionarCliente(connection);
+                        break;
+                    case 2:
+                        listarClientes(connection);
+                        break;
+                    case 3:
+                        atualizarCliente(connection);
+                        break;
+                    case 4:
+                        removerCliente(connection);
+                        break;
+                }
+            } while (opcao != 5);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void criarTabelas(Connection connection) throws SQLException {
+        // Implemente a lógica para criar as tabelas se não existirem
+        // Utilize a classe Statement ou PreparedStatement
+    }
+
+    private static void adicionarCliente(Connection connection) throws SQLException {
+        // Implemente a lógica para adicionar um cliente
+        // Utilize a classe PreparedStatement para evitar SQL Injection
+    }
+
+    private static void listarClientes(Connection connection) throws SQLException {
+        // Implemente a lógica para listar clientes
+        // Utilize a classe Statement e ResultSet
+    }
+
+    private static void atualizarCliente(Connection connection) throws SQLException {
+        // Implemente a lógica para atualizar um cliente
+        // Utilize a classe PreparedStatement para evitar SQL Injection
+    }
+
+    private static void removerCliente(Connection connection) throws SQLException {
+        // Implemente a lógica para remover um cliente
+        // Utilize a classe PreparedStatement para evitar SQL Injection
+    }
+}
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+import java.sql.*;
+import java.util.Scanner;
+
+public class AgenciaViagensConsoleApp {
+    // Configurações do banco de dados
+    static final String JDBC_URL = "jdbc:seu_banco_de_dados_url";
+    static final String USER = "seu_usuario";
+    static final String PASSWORD = "sua_senha";
+
+    public static void main(String[] args) {
+        try (Connection connection = DriverManager.getConnection(JDBC_URL, USER, PASSWORD)) {
+            criarTabelas(connection); // Cria as tabelas se não existirem
+
+            Scanner scanner = new Scanner(System.in);
+            int opcao;
+
+            do {
+                System.out.println("1. Adicionar Cliente");
+                System.out.println("2. Listar Clientes");
+                System.out.println("3. Atualizar Cliente");
+                System.out.println("4. Remover Cliente");
+                System.out.println("5. Sair");
+                System.out.print("Escolha uma opção: ");
+                opcao = scanner.nextInt();
+
+                switch (opcao) {
+                    case 1:
+                        adicionarCliente(connection);
+                        break;
+                    case 2:
+                        listarClientes(connection);
+                        break;
+                    case 3:
+                        atualizarCliente(connection);
+                        break;
+                    case 4:
+                        removerCliente(connection);
+                        break;
+                }
+            } while (opcao != 5);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void criarTabelas(Connection connection) throws SQLException {
+        try (Statement statement = connection.createStatement()) {
+            // Implemente a lógica para criar as tabelas se não existirem
+            String createClienteConta = "CREATE TABLE IF NOT EXISTS ClienteConta ("
+                    + "clienteId INT, "
+                    + "nome VARCHAR(255), "
+                    + "contaId INT, "
+                    + "senha VARCHAR(20), "
+                    + "email VARCHAR(255) UNIQUE, "
+                    + "sexo CHAR(1), "
+                    + "PRIMARY KEY (clienteId, contaId))";
+            statement.executeUpdate(createClienteConta);
+
+            String createUsuario = "CREATE TABLE IF NOT EXISTS Usuario ("
+                    + "usuarioId INT PRIMARY KEY, "
+                    + "nome VARCHAR(255), "
+                    + "senha VARCHAR(20), "
+                    + "fkClienteContaClienteId INT, "
+                    + "fkClienteContaContaId INT, "
+                    + "UNIQUE (nome, fkClienteContaContaId, fkClienteContaClienteId), "
+                    + "FOREIGN KEY (fkClienteContaContaId, fkClienteContaClienteId) "
+                    + "REFERENCES ClienteConta (contaId, clienteId) "
+                    + "ON DELETE CASCADE)";
+            statement.executeUpdate(createUsuario);
+
+            String createPedido = "CREATE TABLE IF NOT EXISTS Pedido ("
+                    + "pedidoId INT PRIMARY KEY, "
+                    + "dtPedido DATE, "
+                    + "valorPedido FLOAT, "
+                    + "fkUsuarioUsuarioId INT, "
+                    + "UNIQUE (dtPedido, valorPedido), "
+                    + "FOREIGN KEY (fkUsuarioUsuarioId) "
+                    + "REFERENCES Usuario (usuarioId) "
+                    + "ON DELETE RESTRICT)";
+            statement.executeUpdate(createPedido);
+        }
+    }
+
+    private static void adicionarCliente(Connection connection) {
+        // Implemente a lógica para adicionar um cliente
+        try (PreparedStatement preparedStatement = connection.prepareStatement(
+                "INSERT INTO ClienteConta (clienteId, nome, contaId, senha, email, sexo) VALUES (?, ?, ?, ?, ?, ?)")) {
+            Scanner scanner = new Scanner(System.in);
+
+            System.out.print("Digite o ID do cliente: ");
+            int clienteId = scanner.nextInt();
+            System.out.print("Digite o nome do cliente: ");
+            String nome = scanner.next();
+            System.out.print("Digite o ID da conta: ");
+            int contaId = scanner.nextInt();
+            System.out.print("Digite a senha: ");
+            String senha = scanner.next();
+            System.out.print("Digite o email: ");
+            String email = scanner.next();
+            System.out.print("Digite o sexo: ");
+            String sexo = scanner.next();
+
+            preparedStatement.setInt(1, clienteId);
+            preparedStatement.setString(2, nome);
+            preparedStatement.setInt(3, contaId);
+            preparedStatement.setString(4, senha);
+            preparedStatement.setString(5, email);
+            preparedStatement.setString(6, sexo);
+
+            preparedStatement.executeUpdate();
+            System.out.println("Cliente adicionado com sucesso!");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void listarClientes(Connection connection) {
+        // Implemente a lógica para listar clientes
+        try (Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery("SELECT * FROM ClienteConta")) {
+            while (resultSet.next()) {
+                System.out.println("Cliente ID: " + resultSet.getInt("clienteId"));
+                System.out.println("Nome: " + resultSet.getString("nome"));
+                System.out.println("Conta ID: " + resultSet.getInt("contaId"));
+                System.out.println("Senha: " + resultSet.getString("senha"));
+                System.out.println("Email: " + resultSet.getString("email"));
+                System.out.println("Sexo: " + resultSet.getString("sexo"));
+                System.out.println("--------------------------");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void atualizarCliente(Connection connection) {
+        // Implemente a lógica para atualizar um cliente
+        try (PreparedStatement preparedStatement = connection.prepareStatement(
+                "UPDATE ClienteConta SET nome=?, contaId=?, senha=?, email=?, sexo=? WHERE clienteId=?")) {
+            Scanner scanner = new Scanner(System.in);
+
+            System.out.print("Digite o ID do cliente que deseja atualizar: ");
+            int clienteId = scanner.nextInt();
+            System.out.print("Digite o novo nome do cliente: ");
+            String nome = scanner.next();
+            System.out.print("Digite o novo ID da conta: ");
+            int contaId = scanner.nextInt();
+            System.out.print("Digite a nova senha: ");
+            String senha = scanner.next();
+            System.out.print("Digite o novo email: ");
+            String email = scanner.next();
+            System.out.print("Digite o novo sexo: ");
+            String sexo = scanner.next();
+
+            preparedStatement.setString(1, nome);
+            preparedStatement.setInt(2, contaId);
+            preparedStatement.setString(3, senha);
+            preparedStatement.setString(4, email);
+            preparedStatement.setString(5, sexo);
+            preparedStatement.setInt(6, clienteId);
+
+            int rowsUpdated = preparedStatement.executeUpdate();
+            if (rowsUpdated > 0) {
+                System.out.println("Cliente atualizado com sucesso!");
+            } else {
+                System.out.println("Cliente não encontrado.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void removerCliente(Connection connection) {
+        // Implemente a lógica para remover um cliente
+        try (PreparedStatement preparedStatement = connection.prepareStatement(
+                "DELETE FROM ClienteConta WHERE clienteId=?")) {
+            Scanner scanner = new Scanner(System.in);
+
+            System.out.print("Digite o ID do cliente que deseja remover: ");
+            int clienteId = scanner.nextInt();
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

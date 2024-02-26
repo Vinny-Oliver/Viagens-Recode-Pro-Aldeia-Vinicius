@@ -1,0 +1,14 @@
+package com.recode.topico5.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class PrimeiroController {
+	
+	@RequestMapping
+	public String ola() {
+		return "Olá, eu sou o Spring Boot!";
+	}
+
+}

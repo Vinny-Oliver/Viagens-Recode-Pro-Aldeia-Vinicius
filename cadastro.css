@@ -1,0 +1,211 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/* Estilizando a barra de rolagem globalmente */
+::-webkit-scrollbar {
+    width: 12px;
+    /* Largura da barra de rolagem */
+}
+
+/* Handle da barra de rolagem */
+::-webkit-scrollbar-thumb {
+    background: #007bff;
+    /* Cor de fundo do handle da barra de rolagem */
+    border-radius: 6px;
+    /* Arredondamento das bordas do handle */
+    border: 3px solid #ffffff;
+    /* Borda em volta do handle */
+}
+
+/* Handle da barra de rolagem ao passar o mouse */
+::-webkit-scrollbar-thumb:hover {
+    background: #0056b3;
+    /* Cor de fundo do handle ao passar o mouse */
+}
+
+/* Track da barra de rolagem */
+::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    /* Cor de fundo da trilha da barra de rolagem */
+    border-radius: 6px;
+    /* Arredondamento das bordas da trilha */
+    box-shadow: inset 0 0 5px grey;
+    /* Sombra interna na trilha */
+}
+
+
+/* Estilos para o navbar */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    /* Define o fundo do navbar como preto */
+    transition: background-color 0.3s ease-in-out;
+    /* Transição suave para a cor de fundo */
+}
+
+/* Estilize o texto "Fui" */
+.navbar-brand {
+    color: #00a6e3;
+    /* Cor do texto "Fui" */
+    font-size: 36px;
+    /* Tamanho da fonte */
+    font-weight: bold;
+    /* Texto em negrito */
+    text-transform: uppercase;
+    /* Transforma o texto em maiúsculas */
+    letter-spacing: 20px;
+    /* Espaçamento entre caracteres */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    /* Sombra de texto */
+}
+
+.navbar:hover {
+    background-color: rgba(121, 39, 146, 0.3) !important;
+    /* Cor de fundo ao passar o mouse */
+}
+
+.navbar-toggler-icon {
+    background-color: #fff;
+    /* Define a cor do ícone do botão de alternância como branco */
+}
+
+.navbar-nav .nav-link {
+    color: #fff !important;
+    /* Cor do texto dos links */
+    font-weight: 600;
+    /* Texto com peso da fonte */
+    transition: color 0.5s;
+    /* Efeito de transição de cor do texto */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #4caf50 !important;
+    /* Cor do texto ao passar o mouse */
+}
+
+/* Formulário de busca Futurista */
+.form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Fundo do campo de pesquisa com transparência */
+    border-color: #4caf50;
+    /* Cor da borda do campo de pesquisa */
+    color: #ff0000 !important;
+    /* Cor do texto do campo de pesquisa */
+}
+
+.btn-outline-success {
+    color: white;
+    /* Define a cor do texto do botão de pesquisa como branco */
+    border-color: #4caf50;
+    /* Define a cor da borda do botão de pesquisa como verde */
+    font-weight: bold;
+    /* Texto em negrito */
+    transition: background-color 0.5s;
+    /* Efeito de transição de cor de fundo */
+}
+
+.btn-outline-success:hover {
+    background-color: #4caf50;
+    /* Define a cor de fundo do botão de pesquisa ao passar o mouse como verde */
+    color: white;
+    /* Define a cor do texto do botão de pesquisa ao passar o mouse como branco */
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url('imagens1/Culinaria Indigena.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    height: 190vh;
+    color: white;
+}
+
+.box {
+    color: white;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 25px;
+    border-radius: 15px;
+    width: auto;
+}
+
+fieldset {
+    position: relative;
+    border: 3px solid dodgerblue;
+    padding: 20px;
+}
+
+legend {
+    width: auto; /* Permite que o legend ajuste sua largura com base no conteúdo dentro dele */
+    min-width: 300px; /* Exemplo de largura mínima */
+    margin: 0 auto; /* Centraliza o legend. Isso é mais eficaz em um contexto de layout de bloco, mas deixaremos aqui para referência */
+    padding: 0 10px; /* Adiciona um pouco de padding horizontal para não tocar diretamente as bordas do texto */
+    text-align: center; /* Garante que o texto dentro do legend seja centralizado */
+    background-color: dodgerblue; /* Define a cor de fundo do legend */
+    border-radius: 8px; /* Arredonda as bordas do legend */
+    border: 1px solid dodgerblue; /* Define a cor da borda do legend */
+    position: absolute; /* Posiciona o legend fora do fluxo normal do documento, permitindo posicioná-lo precisamente */
+    top: -20px; /* Posiciona o legend acima do fieldset. O valor negativo move o legend para cima */
+    left: 50%; /* Posiciona o centro do legend na metade do fieldset */
+    transform: translateX(-50%); /* Desloca o legend para a esquerda pela metade de sua própria largura, centralizando-o efetivamente */
+}
+
+.inputBox {
+    position: relative;
+    
+}
+
+.inputUser {
+    background: none;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    color: white;
+    font-size: 15px;
+    width: 100%;
+    letter-spacing: 2px;
+    
+}
+
+.labelInput {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.inputUser:focus~.labelInput,
+.inputUser:valid~.labelInput {
+    top: -10px;
+    font-size: 12px;
+    color: dodgerblue;
+}
+
+#data_nascimento {
+    border: none;
+    padding: 8px;
+    border-radius: 10px;
+    outline: none;
+    font-size: 15px;
+}
+
+#submit {
+    background-image: linear-gradient(to right, rgb(0, 92, 197), rgb(90, 20, 220));
+    width: 100%;
+    border: none;
+    padding: 15px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#submit:hover {
+    background-image: linear-gradient(to right, rgb(0, 80, 172), rgb(80, 19, 195));
+}

@@ -1,0 +1,5 @@
+package com.seuprojeto.viagem.model;
+
+public class Cliente {
+
+}

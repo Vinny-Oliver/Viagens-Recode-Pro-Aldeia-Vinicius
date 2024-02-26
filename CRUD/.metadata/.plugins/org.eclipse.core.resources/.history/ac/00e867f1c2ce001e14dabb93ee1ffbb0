@@ -1,0 +1,46 @@
+package br.com.seuprojeto.viagem.controller;
+
+import com.seuprojeto.viagem.model.Cliente;
+import com.seuprojeto.viagem.repository.ClienteRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/clientes")
+public class ClienteController {
+
+    @Autowired
+    private ClienteRepository clienteRepository;
+
+    @GetMapping
+    public List<Cliente> listar() {
+        return clienteRepository.findAll();
+    }
+
+    @PostMapping
+    public Cliente adicionar(@RequestBody Cliente cliente) {
+        return clienteRepository.save(cliente);
+    }
+
+    @PutMapping("/{id}")
+    public Cliente atualizar(@PathVariable Long id, @RequestBody Cliente clienteAtualizado) {
+        return clienteRepository.findById(id)
+                .map(cliente -> {
+                    cliente.setNome(clienteAtualizado.getNome());
+                    cliente.setLugar(clienteAtualizado.getLugar());
+                    cliente.setValor(clienteAtualizado.getValor());
+                    return clienteRepository.save(cliente);
+                })
+                .orElseGet(() -> {
+                    clienteAtualizado.setId(id);
+                    return clienteRepository.save(clienteAtualizado);
+                });
+    }
+
+    @DeleteMapping("/{id}")
+    public void deletar(@PathVariable Long id) {
+        clienteRepository.deleteById(id);
+    }
+}

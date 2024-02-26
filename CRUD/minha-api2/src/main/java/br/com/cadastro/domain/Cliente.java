@@ -1,0 +1,108 @@
+package br.com.cadastro.domain;
+import java.io.Serializable;
+import java.util.Objects;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+// Define a classe como entidade
+@Entity
+public class Cliente implements Serializable {
+	
+	// serialVersionUID = 1L é referente aos atributos criados abaixo onde estão as variáveis
+	private static final long serialVersionUID = 1L;
+	
+	// Id notação que define que o id é o identificdor
+	// GeneratedValue gera o Id de forma automática
+	// strategy = GenerationType.IDENTITY gera para nós toda vez um Id automatico e jamais de forma igual
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	private String nome;
+	private String lugar;
+	private String pagamento;
+	private Double valor;
+	
+	public Cliente() {
+		
+	}
+	
+	// Botão direito do mouse + source e selecione todas as variáveis de Generate Constructor Using Field
+	public Cliente(Integer id, String nome, String lugar, String pagamento, Double valor) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.lugar = lugar;
+		this.pagamento = pagamento;
+		this.valor = valor;
+	}
+	
+	// Selecionar os getters e setters menos o SerialVersionUID
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getLugar() {
+		return lugar;
+	}
+
+	public void setLugar(String lugar) {
+		this.lugar = lugar;
+	}
+
+	public String getPagamento() {
+		return pagamento;
+	}
+
+	public void setPagamento(String pagamento) {
+		this.pagamento = pagamento;
+	}
+
+	public Double getValor() {
+		return valor;
+	}
+
+	public void setValor(Double valor) {
+		this.valor = valor;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+	
+	// Generate hashCode0 and equals0 para fazer comparações. Selecionar apenas o Id.
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cliente other = (Cliente) obj;
+		return Objects.equals(id, other.id);
+	}
+	
+	//Generate to String0
+	@Override
+	public String toString() {
+		return "Produto [id=" + id + ", nome=" + nome + ", lugar=" + lugar + ", pagamento=" + pagamento + ", valor="
+				+ valor + "]";
+	}
+}

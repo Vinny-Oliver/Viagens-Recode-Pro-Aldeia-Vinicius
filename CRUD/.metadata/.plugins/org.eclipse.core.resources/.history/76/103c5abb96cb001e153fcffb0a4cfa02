@@ -1,0 +1,26 @@
+package com.curso.recodepro;
+
+import java.util.List; // Importa a classe List corretamente.
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+@RequestMapping("/contatos")
+public class ContatosController {
+    
+    @Autowired
+    private ContatoRepository contatoRepository; // Ajustado para ContatoRepository.
+    
+    @GetMapping
+    public ModelAndView listar() {
+        List<Contato> lista = contatoRepository.findAll(); // Uso da interface ContatoRepository.
+        
+        ModelAndView modelAndView = new ModelAndView("contatos"); // Ajustado para corresponder ao nome do arquivo HTML.
+        modelAndView.addObject("contatos", lista);
+        
+        return modelAndView;
+    }
+}

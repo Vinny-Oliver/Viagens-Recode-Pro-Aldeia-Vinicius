@@ -1,0 +1,13 @@
+package br.com.recodepro;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MinhaApi1Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MinhaApi1Application.class, args);
+	}
+
+}

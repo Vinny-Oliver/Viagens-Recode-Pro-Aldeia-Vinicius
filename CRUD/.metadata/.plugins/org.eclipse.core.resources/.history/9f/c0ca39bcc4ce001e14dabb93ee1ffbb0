@@ -1,0 +1,5 @@
+package com.exemplo.viagemapi.repository;
+
+public interface ClienteRepository {
+
+}

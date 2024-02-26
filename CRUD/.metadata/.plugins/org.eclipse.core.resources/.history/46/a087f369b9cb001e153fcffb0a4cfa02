@@ -1,0 +1,30 @@
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+public class EventoController {
+    
+    @PostMapping("/cadastrarEvento")
+    public String cadastrarEvento(@RequestParam String nome, @RequestParam String email, @RequestParam("telefone") int tel, @RequestParam String curso) {
+        // Aqui você processaria os dados recebidos, por exemplo, salvando em um banco de dados
+        // Após processar os dados, redirecione para uma página de sucesso ou reexiba o formulário com uma mensagem
+        return "redirect:/pagina_de_sucesso"; // Substitua "/pagina_de_sucesso" pelo caminho da página que você deseja mostrar após o cadastro
+    }
+}
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+public class EventoController {
+    
+    @PostMapping("/cadastrarEvento")
+    public String cadastrarEvento(@RequestParam String nome, @RequestParam String email, @RequestParam("telefone") int tel, @RequestParam String curso) {
+        // Aqui você processaria os dados recebidos, por exemplo, salvando em um banco de dados
+        // Após processar os dados, redirecione para uma página de sucesso ou reexiba o formulário com uma mensagem
+        return "redirect:/pagina_de_sucesso"; // Substitua "/pagina_de_sucesso" pelo caminho da página que você deseja mostrar após o cadastro
+    }
+}

@@ -1,0 +1,31 @@
+html {
+  scroll-behavior: smooth;
+}
+
+
+.price {
+    text-decoration: line-through;
+    /* Linha no primeiro valor */
+    color: #888;
+    /* Cor cinza para o preço anterior */
+  }
+
+  .discounted-price {
+    font-size: 1.25rem;
+    /* Tamanho maior para o preço com desconto */
+    color: #E73C7E;
+    /* Cor rosa para o preço com desconto */
+  }
+
+  body {
+  background-image: url('imagens1/passaporte\ \(1\).jpg');
+  /* Substitua 'fundo_destinos.jpg' pelo nome da sua imagem de fundo */
+  background-size: cover;
+  /* A imagem de fundo cobrirá todo o tamanho do corpo da página */
+  background-attachment: fixed;
+  /* A imagem de fundo permanecerá fixa quando a página rolar */
+  background-repeat: no-repeat;
+  /* Evita que a imagem de fundo seja repetida */
+  background-position: center;
+  /* Centraliza a imagem de fundo na tela */
+}

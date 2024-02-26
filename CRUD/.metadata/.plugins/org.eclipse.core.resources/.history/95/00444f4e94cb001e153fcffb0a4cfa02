@@ -1,0 +1,5 @@
+package com.curso.recodepro;
+
+public interface Contatos extends JpaRepository<Contato, Long> {
+	
+}

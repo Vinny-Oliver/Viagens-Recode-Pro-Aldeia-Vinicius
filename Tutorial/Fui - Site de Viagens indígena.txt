@@ -1,0 +1,14 @@
+Fui - Site de Viagens indígena
+
+Sistema de cadastro e acesso html + php:
+Pagina Home + css
+Página Destino + css
+Página Promoções + css
+Página Contato + css
+Página Cadastro + css
+Tela de Acesso + css
+Sessões
+Listagem de Registros
+
+Obs.: Descompactar as páginas e o css dentro da mesma pasta.
+

@@ -1,0 +1,9 @@
+package com.recode.topico5.controller;
+
+public class PrimeiroController {
+	
+	public String ola() {
+		return "Olá, eu sou o Spring Boot!";
+	}
+
+}

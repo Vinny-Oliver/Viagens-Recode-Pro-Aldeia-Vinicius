@@ -1,0 +1,21 @@
+package br.com.aplicationmvc.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import br.com.aplicationmvc.model.Evento;
+import br.com.aplicationmvc.repository.EventoRepository;
+
+@Controller
+public class EventoController {
+
+    @Autowired
+    private EventoRepository eventoRepository;
+
+    @PostMapping("/cadastrarEvento")
+    public String cadastrarEvento(@ModelAttribute Evento evento) {
+        eventoRepository.save(evento);
+        return "redirect:/evento_sucesso"; // Substitua por uma página de confirmação adequada
+    }
+}

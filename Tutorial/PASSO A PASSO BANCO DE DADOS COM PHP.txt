@@ -1,0 +1,85 @@
+Passo a passo para Conectar um formulário html convertido para php a um banco de dados:
+
+1- Baixar o XAMPP e iniciar o Apache e o MySQL:
+XAMPP é um pacote que inclui o Apache (servidor web) e o MySQL (sistema de gerenciamento de banco de dados), entre outros softwares úteis para o desenvolvimento web.
+Isso configura seu ambiente de desenvolvimento local.
+
+2- Acessar o phpMyAdmin via navegador:
+Na url do navegador acessar 'localhost/phpmyadmin' para permitir o gerenciar bancos de dados MySQL.
+
+3- Criar um novo banco de dados:
+Na interface do phpMyAdmin clique em novo e coloque o nome do banco. Exemplo: "formulario-vinicius" e clique em "Criar". Em seguida crie a tabela de sua preferência. Exemplo: usuario e depois adicione colunas como id como chave primaria, não nulo, nome, email senha e telefone.
+
+4- Configuração no VSCode: 
+Este passo envolve a criação de um arquivo config.php para estabelecer a conexão com o banco de dados.
+Entre no VSCode e Crie uma estrutura php. Exemplo: config.php para configurar a conexão com o banco de dados e as chamadas:
+Atenção: o $dbName = 'formulario-vinicius' deve ser igual ao que foi criado no banco de dados do php my admin e no banco de dados do MySQL Workbench.
+Exemplo:
+<?php
+
+$dbHost = 'Localhost';
+$dbUsername = 'root';
+$dbPassword =  '';
+$dbName = 'formulario-vinicius';
+
+$conexao = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
+
+?>
+
+5- Criação da página "cadastro.php":
+Cria um formulário HTML que, ao ser submetido, enviará os dados para o mesmo arquivo (ou outro, conforme a estrutura do seu projeto) que os processa e insere no banco de dados.
+crie uma pagina de cadastro para que possamos criar a estrutura de cadastro. Exemplo: cadastro.php; 
+
+
+6- Código PHP para inserir dados no banco:
+Você inclui o arquivo de configuração da conexão com o banco de dados, captura os dados do formulário e executa uma query para inseri-los no banco.
+Exemplo: Faça o delimitador do php <?php inclua os códigos e feche o delimitador ?>. Exemplo abaixo:
+
+<?php
+
+    if(isset($_POST['submit']))
+    {
+
+        include_once('config.php');
+        
+
+        $nome = $_POST['nome'];
+        $email = $_POST['email'];
+
+
+        $result = mysqli_query($conexao, "INSERT INTO usuarios(nome, email) 
+        VALUES ('$nome', '$email')");
+    }
+
+?>
+
+Obs.: $nome = $_POST['nome'] e o $email = $_POST['email'] deve ser o mesmo que foi criado no MySQL Workbench
+
+
+8 - Uso do MySQL Workbench para realizar consultar pelo próprio computador:
+
+Vá para o MySQL Workbench e clique em Create a New Schema in the connected server (Crie um novo esquema no servidor conectado) e coloque o mesmo nome que foi criado no phpMyAdmin = "formulario-vinicius" para que a ferramenta MySQL Workbench se conecte ao banco de dados do php;
+
+
+Inclua as informações que vão ficar armazenadas no servidor. Exemplo: nome, email, telefone e etc e após o preenchimendo aplique para salvar.
+
+Obs.: MySQL Workbench é uma ferramenta visual de design de banco de dados para trabalhar com sistemas de banco de dados MySQL. O Workbench fornece uma interface gráfica de usuário (GUI) para desenhar o esquema do banco de dados, incluindo tabelas para usuários, com campos como ID, nome, email, etc. Você pode gerar o SQL para criar este esquema diretamente do Workbench. Esse método é necessário em um formulário de preenchimento de cadastro de um usuário;
+
+
+
+
+Comando SQL:
+
+SELECT * FROM usuarios; (Para exibir a consulta completa da tabela usuarios)
+
+DELETE FROM usuarios WHERE id = 1; (Deleta o usuário pela id)
+
+DELETE FROM usuarios WHERE email = 'emaildousuario@example.com'; (deleta o usuário por email)
+
+
+SELECT ROW_NUMBER() OVER (ORDER BY id) AS sequencia, id, nome, email
+FROM usuarios; (Para exibir ID em ordem)
+
+
+
+

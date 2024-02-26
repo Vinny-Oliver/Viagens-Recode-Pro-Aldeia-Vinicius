@@ -1,0 +1,5 @@
+package com.exemplo.viagemapi.controller;
+
+public class ClienteController {
+
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://thymeleaf.org"
+				   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Formulario</title>
+</head>
+
+<body>
+	
+	<h1>Formulario</h1>
+	<form method="post">
+		Nome:<input type="text" name="nome"/>
+		E-mail:<input type="email" name="e-mail"/>
+		Telefone:<input type="tel" name="tel"/>
+		Curso:<input type="text" name="curso"/>
+		
+		<button type="submit">Salvar</button>
+		
+		
+	</form>
+	<table>
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Nome</th>
+				<th>E-mail</th>		
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="contato: ${contatos}">
+				<td th:text="${contato.id}"></td>
+				<td th:text="${contato.nome}"></td>
+				<td th:text="${contato.email}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

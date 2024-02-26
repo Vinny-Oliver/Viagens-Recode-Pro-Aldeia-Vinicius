@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Agora Fui</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css" type="text/css">
+</head>
+
+<body>
+    <!--Abertura da navegação com bootstrap-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+        <div class="container">
+            <img src="imagens1/Blue_and_Yellow_Illustrative_Travel_Agency_Logo-removebg-preview.png" alt="Logotipo" style="height: 80px;"> <!-- Ajuste o caminho e o alt conforme necessário -->
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#destino">Destino</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="promocoes.html">Promoções</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contato.php">Contato</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Cadastre-se </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="cadastro.php">Cliente</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="acesso.php">Acesso</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <form class="d-flex" role="search" action="https://www.google.com/search" method="GET" target="_blank">
+                    <input class="form-control me-2" type="search" name="q" placeholder="Dê um Google"
+                        aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+
+            </div>
+        </div>
+    </nav> <!--Encerramento da navegação com bootstrap-->
+
+    <header id="home">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2500">
+            <!--Abertua do Carrosel com 2500 milissegundos-->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="imagens1/pantanal indigena.png" class="d-block w-100" alt="paris">
+                    <div class="carousel-caption d-md-block">
+                        <h2>Explore o Mundo com Agora Fui - Sua Passagem para o Desconhecido!
+                        </h2>
+                        <p>Bem-vindo à sua porta de entrada para aventuras emocionantes e destinos deslumbrantes.
+                            Na Agora Fui, acreditamos que a vida é uma jornada,
+                            e cada viagem é uma oportunidade para criar memórias inesquecíveis.
+                            Prepare-se para explorar o mundo, desvendar novas culturas e desfrutar de experiências
+                            únicas.</p>
+                        <a href="promocoes.html" class="main-btn">Reservas</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="imagens1/cachoeira indigena.png" class="d-block w-100" alt="Londres">
+                    <div class="carousel-caption d-md-block">
+                        <h2>Destinos Incríveis: </h2>
+                        <p>Oferecemos uma vasta seleção de destinos em todos os cantos do globo.
+                            Das icônicas metrópoles às paisagens naturais intocadas,
+                            nossos destinos são cuidadosamente escolhidos para atender a todos os gostos.</p>
+                        <a href="promocoes.html" class="main-btn">Reserve agora</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="imagens1/turismo2.png" class="d-block w-100" alt="Dubai">
+                    <div class="carousel-caption d-m-block">
+                        <h2>Ofertas Especiais:</h2>
+                        <P>Embarque em suas aventuras com ofertas especiais exclusivas da Agora Fui.
+                            Nossas promoções sazonais e descontos imperdíveis tornam sua viagem mais acessível.</P>
+                        <a href="promocoes.html" class="main-btn">Reserve já</a>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" role="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Voltar</span>
+            </button>
+            <button class="carousel-control-next" role="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Próximo</span>
+            </button>
+        </div> <!--Encerramento do Carrosel-->
+    </header>
+
+    <!-- Antes da seção #destino -->
+    <section id="divisao-impactante">
+        <div class="container text-center py-5">
+            <h2>Prontos para a Próxima Aventura?</h2>
+            <p>Descubra destinos que vão transformar sua maneira de ver o mundo.</p>
+        </div>
+    </section>
+
+
+    <section id="destino">
+        <div class="headline">Destinos</div>
+        <div class="container mt-4">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <!-- Primeiro cartão -->
+                <div class="col">
+                    <div class="card h-100">
+                        <video width="425" height="265" class="card-img-top" controls>
+                            <source src="imagens1/Descubra as Serras Guerreiras de Tapuruquara.mp4" type="video/mp4">
+                        </video>
+                        <div class="card-body">
+                            <h5 class="card-title">Serras Guerreiras de Tapuruquara</h5>
+                            <p class="card-text"> <strong>Iwitera Maramuywera Tapuruquara Suiwara, na língua
+                                    Nheengatu:</strong>
+                                antiga Tapuruquara, nas Terras Indígenas
+                                Médio Rio Negro I e Médio Rio Negro II. É nesse território sagrado para a cultura
+                                indígena que as
+                                expedições acontecem: aventuras amazônicas em meio à espetacular diversidade natural do
+                                Rio Negro,
+                                guiada pelos povos que vivem no lugar há milhares de anos.</p>
+                            <p><strong>História:</strong> Contam os antigos que essas serras alinhadas eram um grupo de
+                                guerreiros que
+                                desceu da Colômbia para travar uma batalha contra a serra localizada do outro lado do
+                                rio. Amanheceu o
+                                dia, os guerreiros viraram pedra e ali estão até hoje.</p>
+                            <p>As Expedições Serras Guerreiras de Tapuruquara são viagens de experiência para apresentar
+                                ao visitante
+                                o território e os modos de vida desses povos. Elas são realizadas em conjunto pelas
+                                comunidades
+                                indígenas, pela Associação das Comunidades Indígenas e Ribeirinhas (ACIR) e por
+                                parceiros operadores – o
+                                que garante divulgação com respeito ao território indígena e a realização de roteiros
+                                com segurança.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="promocoes.html" class="btn btn-primary">Comprar</a>
+                            <small class="text-muted">Promoções por tempo limitado</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segundo cartão -->
+                <div class="col">
+                    <div class="card h-100">
+                        <video width="425" height="265" class="card-img-top" controls>
+                            <source src="imagens1/Vem conhecer a cultura Indígena da Amazônia.mp4" type="video/mp4">
+                        </video>
+                        <div class="card-body">
+                            <h5 class="card-title">Wajãpi</h5>
+                            <p class="card-text"><strong>Amapá:</strong> Os Wajãpi são, atualmente, 670 pessoas,
+                                distribuídas entre 48 aldeias. Constituem um grupo remanescente de um povo outrora muito
+                                mais numeroso,
+                                subdividido em vários grupos independentes e cuja população total foi estimada em cerca
+                                de 6 mil pessoas
+                                no começo do século XIX</p>
+                            <p><strong> Venha conhecer!</strong> A região do povo Waiãpi fica a cerca de 300 quilômetros
+                                da capital
+                                Macapá. A terra indígena desse povo é a maior do Amapá em extensão, com 607.017
+                                hectares, de acordo com
+                                o Instituto Brasileiro de Geografia e Estatística (IBGE). A área abrange os municípios
+                                de Pedra Branca
+                                do Amapari, Laranjal do Jari e Mazagão. </p>
+                            <p><strong> A Arte Kusiwa: </strong>É uma técnica de pintura e arte gráfica própria da
+                                população indígena
+                                Wajãpi, do Amapá. Os grafismos podem ter como suporte o corpo humano, mas também cestos,
+                                cuias,
+                                tecelagem, bordunas e objetos de madeira.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="promocoes.html" class="btn btn-primary">Comprar</a>
+                            <small class="text-muted">Promoções por tempo limitado</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Terceiro cartão -->
+                <div class="col">
+                    <div class="card h-100">
+                        <video width="425" height="265" class="card-img-top" controls>
+                            <source src="imagens1/Aldeia Indígena Pataxó _ Como vivem os Índios Pataxó.mp4"
+                                type="video/mp4">
+                        </video>
+                        <div class="card-body">
+                            <h5 class="card-title">Aldeia Pataxó</h5>
+                            <p class="card-text"><strong>Rio de Janeiro:</strong> ‌Ter o privilégio de conhecer uma
+                                tribo indígena bem
+                                próxima do Rio de Janeiro pode parecer algo novo e até mesmo raro, mas em Paraty existe
+                                o grupo étnico
+                                Pataxó assentado em terras que lhes foram designadas, mas que, na realidade, sempre
+                                pertenceram a eles.‌
+                            </p>
+                            <p>A Aldeia assentada em Paraty na localidade de Iriri desde os anos 90, os Pataxós são
+                                originários do Sul
+                                Baiano mas parte da etnia vive hoje em Paraty em um local com bela cachoeira e praia e
+                                com uma estrutura
+                                de quiosque , loja de artesanato e também espaço para realização de rituais.</p>
+                            <p class="card-text"> Guerreiros, eles sofreram muito até conseguir resgatar sua cultura.
+                                Originário da
+                                Aldeia de Barra Velha (conhecida como Aldeia Mãe), área indígena do Monte Pascoal, e
+                                distribuído em
+                                várias aldeias por diversos municípios (Prado, Itamaraju, Santa Cruz Cabrália e Porto
+                                Seguro), o povo
+                                pataxó sempre foi guerreiro.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="promocoes.html" class="btn btn-primary">Comprar</a>
+                            <small class="text-muted">Promoções por tempo limitado</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div>
+        <footer id="footer">
+            <div class="payment-methods">
+                <h2>Formas de Pagamento</h2>
+                <img src="imagens1/visa.png" alt="Visa" />
+                <img src="imagens1/mastercard.png" alt="MasterCard" />
+                <img src="imagens1/paypal.jpg" alt="PayPal" />
+                <img src="imagens1/pix.png" alt="Pix" />
+                <!-- Adicione mais logos conforme necessário -->
+            </div>
+            <p>Copyright &copy; 2024 - Todos os direitos reservados.</p>
+            <p>Feito por Vinicius Oliveira.</p>
+        </footer>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+
+</body>
+
+</html>
